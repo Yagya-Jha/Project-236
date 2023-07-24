@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Fake E-Commerce Site</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            let html;
+            $(document).ready(function(){
+                $.ajax({
+                    url: 'http://ec2-3-108-196-161.ap-south-1.compute.amazonaws.com/',
+                    success: function(data){
+                        html=data;
+                        display_html();
+                    }
+                });
+            });
+
+            function display_html(){
+                $("body").append(html);
+                $('.p-3').html(`<img src='http://ec2-3-108-196-161.ap-south-1.compute.amazonaws.com/static/images/login.png' width="90%">`)
+                $(".login-button").click(function(){
+                    document.location.href="http://ec2-3-108-196-161.ap-south-1.compute.amazonaws.com/dashboard"
+                })
+            }
+        </script>
+    </body>
+</html>
